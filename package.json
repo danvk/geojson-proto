@@ -1,0 +1,19 @@
+{
+  "name": "geojson-proto",
+  "version": "1.0.0",
+  "description": "Experiment representing GeoJSON as a proto",
+  "main": "index.js",
+  "author": "Dan Vanderkam <danvdk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "protobufjs": "^6.7.3",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2"
+  },
+  "scripts": {
+    "genjs": "pbjs --target static-module -n -w es6 -o proto/bundle.js proto/*.proto",
+    "gents": "pbts -o proto/bundle.d.ts proto/bundle.js",
+    "codegen": "yarn genjs && yarn gents",
+    "start": "ts-node encode.ts"
+  }
+}

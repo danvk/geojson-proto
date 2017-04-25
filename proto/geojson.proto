@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "google/protobuf/any.proto";
+
+package geojson;
+
+message FeatureCollection {
+  string type = 1;
+  repeated Feature features = 2;
+}
+
+message Feature {
+  string type = 1;
+  Geometry geometry = 2;
+  google.protobuf.Any properties = 3;
+}
+
+message Geometry {
+  string type = 1;
+  repeated float coordinates = 2;  // this is a lie. Can only represent a Point.
+}
